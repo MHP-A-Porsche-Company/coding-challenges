@@ -2,7 +2,7 @@ package com.mhp.coding.challenges.mapping.models.dto.blocks;
 
 import com.mhp.coding.challenges.mapping.models.db.blocks.VideoBlockType;
 
-public class VideoBlock extends ArticleBlockDto {
+public class VideoBlockDto extends ArticleBlockDto {
 
     private String url;
 

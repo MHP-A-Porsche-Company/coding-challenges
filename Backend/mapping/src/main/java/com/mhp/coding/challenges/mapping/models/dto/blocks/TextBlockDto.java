@@ -1,6 +1,6 @@
 package com.mhp.coding.challenges.mapping.models.dto.blocks;
 
-public class TextBlock extends ArticleBlockDto {
+public class TextBlockDto extends ArticleBlockDto {
 
     private String text;
 

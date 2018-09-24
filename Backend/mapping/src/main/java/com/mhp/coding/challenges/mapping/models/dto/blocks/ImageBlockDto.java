@@ -2,7 +2,7 @@ package com.mhp.coding.challenges.mapping.models.dto.blocks;
 
 import com.mhp.coding.challenges.mapping.models.dto.ImageDto;
 
-public class ImageBlock extends ArticleBlockDto {
+public class ImageBlockDto extends ArticleBlockDto {
 
     private ImageDto image;
 
