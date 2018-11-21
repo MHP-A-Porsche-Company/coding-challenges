@@ -24,3 +24,13 @@ dependencies {
 dependencyManagement {
     imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
 }
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src'
+            srcDirs '../notifications/src'
+
+        }
+    }
+}
