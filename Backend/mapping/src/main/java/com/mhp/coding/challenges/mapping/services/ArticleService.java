@@ -40,4 +40,9 @@ public class ArticleService {
         repository.create(create);
         return mapper.map(create);
     }
+    
+    public void doNothing()
+    {
+    	
+    }
 }
