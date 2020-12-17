@@ -1,12 +1,11 @@
-package com.mhp.coding.challenges.mapping;
+package com.mhp.coding.challenges.mapping
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
-public class Application {
+class Application
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+fun main(args: Array<String>) {
+    runApplication<Application>(*args)
 }

@@ -1,35 +1,20 @@
-package com.mhp.coding.challenges.mapping.controllers;
+package com.mhp.coding.challenges.mapping.controllers
 
-import com.mhp.coding.challenges.mapping.models.dto.ArticleDto;
-import com.mhp.coding.challenges.mapping.services.ArticleService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import com.mhp.coding.challenges.mapping.models.dto.ArticleDto
+import com.mhp.coding.challenges.mapping.services.ArticleService
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/article")
-public class ArticleController {
-
-    private final ArticleService articleService;
-
-    @Autowired
-    public ArticleController(ArticleService articleService) {
-        this.articleService = articleService;
-    }
-
-    @GetMapping()
-    public List<ArticleDto> list() {
-        return articleService.list();
-    }
+class ArticleController(
+    private val articleService: ArticleService
+) {
+    @GetMapping
+    fun list(): List<ArticleDto> = articleService.list()
 
     @GetMapping("/{id}")
-    public ArticleDto details(@PathVariable Long id) {
-        return articleService.articleForId(id);
-    }
+    fun details(@PathVariable id: Long): ArticleDto = articleService.articleForId(id)
 
-    @PostMapping()
-    public ArticleDto create(@RequestBody ArticleDto articleDto) {
-        return articleService.create(articleDto);
-    }
+    @PostMapping
+    fun create(@RequestBody articleDto: ArticleDto): ArticleDto = articleService.create(articleDto)
 }
