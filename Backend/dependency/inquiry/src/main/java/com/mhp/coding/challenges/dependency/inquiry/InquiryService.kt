@@ -1,16 +1,21 @@
-package com.mhp.coding.challenges.dependency.inquiry;
+package com.mhp.coding.challenges.dependency.inquiry
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import mu.KotlinLogging
+import org.springframework.stereotype.Component
+
+private val logger = KotlinLogging.logger {}
 
 @Component
-public class InquiryService {
-
-    private static final Logger LOG = LoggerFactory.getLogger(InquiryService.class);
-
-    public void create(final Inquiry inquiry) {
-        LOG.info("User sent inquiry: {}", inquiry);
+class InquiryService {
+    fun create(inquiry: Inquiry) {
+        logger.info {
+            "User sent inquiry: $inquiry"
+        }
     }
-
 }
+
+data class Inquiry(
+    var username: String,
+    var recipient: String,
+    var text: String,
+)

@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.springframework.boot.gradle.tasks.bundling.BootJar
+
+val kotlinlogger_version: String by project
 
 plugins {
     kotlin("jvm")
@@ -31,6 +32,18 @@ allprojects {
 }
 
 subprojects {
+    apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+    apply(plugin = "io.spring.dependency-management")
+
+    dependencies {
+        implementation("org.springframework.boot:spring-boot-starter")
+        implementation("io.github.microutils:kotlin-logging:$kotlinlogger_version")
+        testImplementation("org.springframework.boot:spring-boot-starter-test") {
+            exclude(module = "mockito-core")
+        }
+    }
+
     tasks {
         withType<KotlinCompile> {
             kotlinOptions {
