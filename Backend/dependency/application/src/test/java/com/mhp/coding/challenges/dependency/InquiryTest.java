@@ -4,17 +4,17 @@ import com.mhp.coding.challenges.dependency.inquiry.Inquiry;
 import com.mhp.coding.challenges.dependency.inquiry.InquiryService;
 import com.mhp.coding.challenges.dependency.notifications.EmailHandler;
 import com.mhp.coding.challenges.dependency.notifications.PushNotificationHandler;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = Application.class)
 public class InquiryTest {
 
