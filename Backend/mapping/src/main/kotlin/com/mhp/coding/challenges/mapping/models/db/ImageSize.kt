@@ -1,7 +1,7 @@
-package com.mhp.coding.challenges.mapping.models.db;
+package com.mhp.coding.challenges.mapping.models.db
 
-public enum ImageSize {
+enum class ImageSize {
     SMALL,
     MEDIUM,
-    LARGE
+    LARGE,
 }

@@ -1,6 +1,6 @@
-package com.mhp.coding.challenges.mapping.models.db.blocks;
+package com.mhp.coding.challenges.mapping.models.db.blocks
 
-public enum VideoBlockType {
+enum class VideoBlockType {
     YOUTUBE,
-    VIMEO
+    VIMEO,
 }
