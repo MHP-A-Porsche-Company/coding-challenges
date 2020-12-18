@@ -16,8 +16,6 @@ and `PushNotificationHandler#sendNotification` have been called with the same pa
 - the existing classes shall not be moved between the modules
 - the dependencies between the modules shall not be customized
 - Any other gradle dependencies can be added
-- optional: can be implemented in Kotlin
-
 
 
 --- German -----------------------------------------------
@@ -38,5 +36,4 @@ und `PushNotificationHandler#sendNotification` mit dem gleichen Parameter aufger
  - Die bestehenden Klassen dürfen nicht zwischen den Modulen verschoben werden
  - Die Abhängigkeiten zwischen den Modulen dürfen nicht angepasst werden
  - Ansonsten können beliebige gradle dependencies hinzugefügt werden
- - optional: die Aufgabe kann in Kotlin umgesetzt werden
- 
+
