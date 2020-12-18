@@ -9,71 +9,69 @@ import java.util.*
 
 @Component
 class ArticleRepository {
-    fun all(): List<Article> = listOf(
-        createDummyArticle(1001L),
-        createDummyArticle(2002L),
-        createDummyArticle(3003L),
-        createDummyArticle(4004L),
-        createDummyArticle(5005L),
-    )
+    fun all(): List<Article> = setOf(1001L, 2002L, 3003L, 4004L, 5005L).map { it.createDummyArticle }
 
-    fun findBy(id: Long): Article = createDummyArticle(id)
+    fun findBy(id: Long): Article = id.createDummyArticle
 
     fun create(article: Article?) {
         //Ignore
     }
 
-    private fun createDummyArticle(id: Long): Article {
-        val result = Article()
-        result.id = id
-        result.author = "Max Mustermann"
-        result.description = "Article Description $id"
-        result.title = "Article Nr.: $id"
-        result.lastModifiedBy = "Hans Müller"
-        result.lastModified = Date()
-        result.blocks = createBlocks(id)
-        return result
+    private val Long.createDummyArticle
+        get() = Article(
+            id = this,
+            lastModified = Date(),
+            lastModifiedBy = "Hans Müller",
+            title = "Article Nr.: $this",
+            description = "Article Description $this",
+            author = "Max Mustermann",
+            blocks = createBlocks(),
+        )
+
+    private fun Long.createBlocks(): Set<ArticleBlock> {
+        val textBlock = TextBlock(
+            text = "Some Text for $this",
+            sortIndex = 0
+        )
+
+        val imageBlock = ImageBlock(
+            image = createImage(1L),
+            sortIndex = 1
+        )
+
+        val secondTextBlock = TextBlock(
+            text = "Second Text for $this",
+            sortIndex = 2
+        ).also { textBlock.sortIndex = 1 }
+
+        val galleryBlock = GalleryBlock(
+            images = listOf(
+                createImage(2L),
+                createImage(3L)
+            )
+        ).also { secondTextBlock.sortIndex = 3 }
+
+        val thirdTextBlock = TextBlock(
+            text = "Third Text for $this",
+            sortIndex = 4
+        )
+
+        val videoBlock = VideoBlock(
+            type = VideoBlockType.YOUTUBE,
+            url = "https://youtu.be/myvideo",
+            sortIndex = 4
+        )
+
+        return setOf(textBlock, imageBlock, secondTextBlock, galleryBlock, thirdTextBlock, videoBlock)
     }
 
-    private fun createBlocks(articleId: Long): Set<ArticleBlock> {
-        val result: MutableSet<ArticleBlock> = HashSet()
-        val textBlock = TextBlock()
-        textBlock.text = "Some Text for $articleId"
-        textBlock.sortIndex = 0
-        result.add(textBlock)
-        val imageBlock = ImageBlock()
-        imageBlock.image = createImage(1L)
-        textBlock.sortIndex = 1
-        result.add(imageBlock)
-        val secondTextBlock = TextBlock()
-        secondTextBlock.text = "Second Text for $articleId"
-        secondTextBlock.sortIndex = 2
-        result.add(secondTextBlock)
-        val galleryBlock = GalleryBlock()
-        secondTextBlock.sortIndex = 3
-        val galleryImages: MutableList<Image> = ArrayList()
-        galleryImages.add(createImage(2L))
-        galleryImages.add(createImage(3L))
-        galleryBlock.images = galleryImages
-        result.add(galleryBlock)
-        val thirdTextBlock = TextBlock()
-        thirdTextBlock.text = "Third Text for $articleId"
-        thirdTextBlock.sortIndex = 4
-        result.add(thirdTextBlock)
-        val videoBlock = VideoBlock()
-        videoBlock.type = VideoBlockType.YOUTUBE
-        videoBlock.url = "https://youtu.be/myvideo"
-        videoBlock.sortIndex = 5
-        result.add(videoBlock)
-        return result
-    }
-
-    private fun createImage(imageId: Long): Image {
-        return Image().apply {
-            id = imageId
-            lastModified = Date()
-            imageSize = ImageSize.LARGE
-            url = "https://someurl.com/image/$imageId"
-        }.let { Image() }
+    private fun createImage(imageId: Long): Image? {
+        return Image(
+            url = "https://someurl.com/image/$imageId",
+            id = imageId,
+            imageSize = ImageSize.LARGE,
+            lastModified = Date(),
+            lastModifiedBy = "John Doe"
+        ).let { null }
     }
 }

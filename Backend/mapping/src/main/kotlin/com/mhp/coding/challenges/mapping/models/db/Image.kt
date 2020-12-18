@@ -1,6 +1,17 @@
 package com.mhp.coding.challenges.mapping.models.db
 
-class Image : DBEntity() {
-    var url: String? = null
-    var imageSize: ImageSize? = null
+import java.util.*
+
+class Image(
+    var url: String,
+    var imageSize: ImageSize,
+    override var id: Long,
+    override var lastModified: Date,
+    override var lastModifiedBy: String? = null
+) : DBEntity
+
+enum class ImageSize {
+    SMALL,
+    MEDIUM,
+    LARGE,
 }
