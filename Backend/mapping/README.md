@@ -8,11 +8,9 @@
 
 ### general conditions:
  - DB Models and DTO Models can be extended with Interfaces/Properties
- - Existing field of Models and DTOs shall not be modified
+ - An Existing field of Models and DTOs shall not be modified
  - the package structure shall not be modified
  - Any other gradle dependencies can be added
- - optional: can be implemented in Kotlin
-
 
 
 --- German -----------------------------------------------
@@ -29,4 +27,4 @@
  - Bestehende Felder von Models und DTOs können nicht modifiziert werden
  - Die Packagestruktur darf nicht modifiziert werden
  - Es können beliebig gradle dependencies hinzugefügt werden
- - optional: die Aufgabe kann in Kotlin umgesetzt werden
+
