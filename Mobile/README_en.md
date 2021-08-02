@@ -22,8 +22,10 @@ It should be possible to select a house from the list. By tapping on a entry the
   - Android
     - Code using Kotlin
     - Min. API Level 21
-    - Use `RecyclerView`
     - Avoid use of third party dependencies where possible
+    - Select on of the following UI-Toolkits:
+      - Legacy: use `RecyclerView`
+      - Jetpack Compose
   - iOS
     - Code using Swift
     - Deployment Target iOS 14
