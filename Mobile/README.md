@@ -22,8 +22,10 @@ Es soll möglich sein eines dieser Häuser aus der Tabelle auszuwählen. Durch T
   - Android
     - Code in Kotlin
     - Min. API Level 21
-    - Verwendung von RecyclerView
     - Nutzung externer Libraries vermeiden
+    - Wähle eins der folgenden UI-Toolkits aus:
+      - Legacy: nutze eine RecyclerView
+      - Jetpack Compose
   - iOS
     - Code using Swift
     - Deployment Target iOS 14
