@@ -11,7 +11,7 @@ import java.util.*;
 @Component
 public class ArticleRepository {
 
-    public List<Article> all(){
+    public List<Article> all() {
         final List<Article> result = new ArrayList<>();
         result.add(createDummyArticle(1001L));
         result.add(createDummyArticle(2002L));
@@ -21,11 +21,11 @@ public class ArticleRepository {
         return result;
     }
 
-    public Article findBy(Long id){
-        return createDummyArticle(id);
+    public Optional<Article> findBy(Long id) {
+        return Optional.of(createDummyArticle(id));
     }
 
-    public void create(Article article){
+    public void create(Article article) {
         //Ignore
     }
 
@@ -41,7 +41,7 @@ public class ArticleRepository {
         return result;
     }
 
-    private Set<ArticleBlock> createBlocks(Long articleId){
+    private Set<ArticleBlock> createBlocks(Long articleId) {
         final Set<ArticleBlock> result = new HashSet<>();
 
         final TextBlock textBlock = new TextBlock();
@@ -93,7 +93,7 @@ public class ArticleRepository {
         return result;
     }
 
-    private Image createImage(Long imageId){
+    private Image createImage(Long imageId) {
         final Image result = new Image();
         result.setId(imageId);
         result.setLastModified(new Date());

@@ -29,7 +29,7 @@ class ArticleServiceTest {
     }
 
     @Test
-    void shouldSortBlocksBySortingIndex(){
+    void shouldSortBlocksBySortingIndex() {
 
         // act
         final List<ArticleDto> articleDtoList = service.list();
@@ -52,7 +52,7 @@ class ArticleServiceTest {
             return true;
         }
 
-        for(ArticleDto articleDto: articleDtoList){
+        for (ArticleDto articleDto : articleDtoList) {
 
             final Iterator<ArticleBlockDto> iter = articleDto.getBlocks().iterator();
 

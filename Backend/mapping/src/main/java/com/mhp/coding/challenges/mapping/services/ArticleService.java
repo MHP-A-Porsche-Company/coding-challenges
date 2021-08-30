@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,9 +32,11 @@ public class ArticleService {
     }
 
     public ArticleDto articleForId(Long id) {
-        final Article article = repository.findBy(id);
+        final Optional<Article> optionalArticle = repository.findBy(id);
         //TODO
-        return ArticleDto.builder().build();
+        Article article = optionalArticle.orElseThrow(() -> new NoSuchElementException());
+
+        return mapper.map(article);
     }
 
     public ArticleDto create(ArticleDto articleDto) {
