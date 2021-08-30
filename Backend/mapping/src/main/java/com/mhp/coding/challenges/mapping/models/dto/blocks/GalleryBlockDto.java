@@ -1,9 +1,11 @@
 package com.mhp.coding.challenges.mapping.models.dto.blocks;
 
 import com.mhp.coding.challenges.mapping.models.dto.ImageDto;
+import lombok.Builder;
 
 import java.util.List;
 
+@Builder
 public class GalleryBlockDto extends ArticleBlockDto {
 
     private List<ImageDto> images;

@@ -1,8 +1,10 @@
 package com.mhp.coding.challenges.mapping.models.dto.blocks;
 
 import com.mhp.coding.challenges.mapping.models.db.blocks.VideoBlockType;
+import lombok.Builder;
 
-public class VideoBlock extends ArticleBlockDto {
+@Builder
+public class VideoBlockDto extends ArticleBlockDto {
 
     private String url;
 

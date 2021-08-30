@@ -48,7 +48,6 @@ class ArticleControllerTest {
     @Test
     void shouldReturnNotFoundIfNoSuchArticleExists() throws Exception {
 
-
         // arrange
         when(service.articleForId(any())).thenThrow(new NoSuchElementException("Thrown for test"));
 

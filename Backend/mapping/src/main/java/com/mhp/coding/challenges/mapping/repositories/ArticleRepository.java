@@ -22,6 +22,12 @@ public class ArticleRepository {
     }
 
     public Optional<Article> findBy(Long id) {
+
+        // to produce NoSuchElementException for unit test
+        if(id > 6000){
+            return Optional.empty();
+        }
+
         return Optional.of(createDummyArticle(id));
     }
 
@@ -52,10 +58,7 @@ public class ArticleRepository {
         final ImageBlock imageBlock = new ImageBlock();
         imageBlock.setImage(createImage(1L));
 
-        // mistake - textBlock instead of imageBlock ?
-//      textBlock.setSortIndex(1);
-
-        // correction
+        // correction - imageBlock instead of textBlock
         imageBlock.setSortIndex(1);
         result.add(imageBlock);
 
@@ -65,10 +68,8 @@ public class ArticleRepository {
         result.add(secondTextBlock);
 
         final GalleryBlock galleryBlock = new GalleryBlock();
-        // same mistake, textBlock instead of galleryBlock ?
-//        secondTextBlock.setSortIndex(3);
 
-        // correction
+        // correction - galleryBlock instead of textBlock
         galleryBlock.setSortIndex(3);
 
         final List<Image> galleryImages = new ArrayList<>();
@@ -100,6 +101,6 @@ public class ArticleRepository {
         result.setLastModifiedBy("Max Mustermann");
         result.setImageSize(ImageSize.LARGE);
         result.setUrl("https://someurl.com/image/" + imageId);
-        return null;
+        return result;
     }
 }
