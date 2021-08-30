@@ -51,7 +51,12 @@ public class ArticleRepository {
 
         final ImageBlock imageBlock = new ImageBlock();
         imageBlock.setImage(createImage(1L));
-        textBlock.setSortIndex(1);
+
+        // mistake - textBlock instead of imageBlock ?
+//      textBlock.setSortIndex(1);
+
+        // correction
+        imageBlock.setSortIndex(1);
         result.add(imageBlock);
 
         final TextBlock secondTextBlock = new TextBlock();
@@ -60,7 +65,11 @@ public class ArticleRepository {
         result.add(secondTextBlock);
 
         final GalleryBlock galleryBlock = new GalleryBlock();
-        secondTextBlock.setSortIndex(3);
+        // same mistake, textBlock instead of galleryBlock ?
+//        secondTextBlock.setSortIndex(3);
+
+        // correction
+        galleryBlock.setSortIndex(3);
 
         final List<Image> galleryImages = new ArrayList<>();
         galleryImages.add(createImage(2L));

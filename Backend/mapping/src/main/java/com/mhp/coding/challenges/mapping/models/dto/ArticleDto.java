@@ -2,9 +2,19 @@ package com.mhp.coding.challenges.mapping.models.dto;
 
 
 import com.mhp.coding.challenges.mapping.models.dto.blocks.ArticleBlockDto;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 import java.util.Collection;
 
+@Data
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ArticleDto {
 
     private Long id;
@@ -17,43 +27,4 @@ public class ArticleDto {
 
     private Collection<ArticleBlockDto> blocks;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public Collection<ArticleBlockDto> getBlocks() {
-        return blocks;
-    }
-
-    public void setBlocks(Collection<ArticleBlockDto> blocks) {
-        this.blocks = blocks;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

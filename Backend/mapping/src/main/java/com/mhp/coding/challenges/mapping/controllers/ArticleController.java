@@ -18,7 +18,7 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-    @GetMapping()
+    @GetMapping("/all")
     public List<ArticleDto> list() {
         return articleService.list();
     }
