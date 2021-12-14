@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MHP.CodingChallenge.Backend.Dependency.Inquiry;
+using MHP.CodingChallenge.Backend.Dependency.Inquiry.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MHP.CodingChallenge.Backend;
+using MHP.CodingChallenge.Backend.Dependency.Notifications;
 
 namespace MHP.CodingChallenge.Backend.Dependency
 {
@@ -28,6 +31,8 @@ namespace MHP.CodingChallenge.Backend.Dependency
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<InquiryService>();
+            services.AddScoped<IEmailHandler, EmailHandler>();
+            services.AddScoped<IPushNotificationHandler, PushNotificationHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
