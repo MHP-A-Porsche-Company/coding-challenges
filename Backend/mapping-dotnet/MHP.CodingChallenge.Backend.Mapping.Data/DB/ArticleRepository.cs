@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MHP.CodingChallenge.Backend.Mapping.Data.DB.Blocks;
 
 namespace MHP.CodingChallenge.Backend.Mapping.Data.DB
@@ -19,7 +20,14 @@ namespace MHP.CodingChallenge.Backend.Mapping.Data.DB
 
         public Article FindById(long id)
         {
-            return CreateDummyArticle(id);
+            //gets all the articles from the list and returns if found 
+            var articlesList = GetAll().ToDictionary( key => key.Id,vp=> vp );
+            if (articlesList.TryGetValue(id, out Article value))
+            {
+                return value;
+            }
+            return null;
+            //return CreateDummyArticle(id);
         }
 
         public void Create(Article article)

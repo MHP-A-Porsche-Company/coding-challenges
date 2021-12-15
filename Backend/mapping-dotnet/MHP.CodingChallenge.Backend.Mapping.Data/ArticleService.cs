@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using MHP.CodingChallenge.Backend.Mapping.Data.DB;
 using MHP.CodingChallenge.Backend.Mapping.Data.DTO;

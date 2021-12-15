@@ -16,7 +16,7 @@ namespace MHP.CodingChallenge.Backend.Mapping.Controllers
     public class ArticleController : ControllerBase
     {
         private ILogger<ArticleController> _logger;
-        private ArticleService _articleService;
+        private readonly ArticleService _articleService;
 
         public ArticleController(ILogger<ArticleController> logger,
             ArticleService articleService)
@@ -39,6 +39,8 @@ namespace MHP.CodingChallenge.Backend.Mapping.Controllers
         public IActionResult GetById(long id)
         {
             var res = _articleService.GetById(id);
+            
+            //if result is not found from the list ,returns #404 not found 
             if (res is null)
             {
                 return NotFound();
@@ -51,5 +53,6 @@ namespace MHP.CodingChallenge.Backend.Mapping.Controllers
         {
             return new JsonResult(_articleService.Create(article));
         }
+        
     }
 }
