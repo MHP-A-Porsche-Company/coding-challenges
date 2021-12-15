@@ -14,5 +14,5 @@
     <ProjectReference Include="..\MHP.CodingChallenge.Backend.Dependency.Inquiry\MHP.CodingChallenge.Backend.Dependency.Inquiry.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-  </ItemGroup>
+  </ItemGroup>exit
 </Project>
