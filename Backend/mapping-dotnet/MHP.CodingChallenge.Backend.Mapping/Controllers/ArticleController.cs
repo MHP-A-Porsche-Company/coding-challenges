@@ -30,7 +30,7 @@ namespace MHP.CodingChallenge.Backend.Mapping.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get()
         {
-           return new JsonResult(_articleService.GetAll());
+            return new JsonResult(_articleService.GetAll());
         }
 
         [HttpGet("{id}")]
@@ -44,7 +44,6 @@ namespace MHP.CodingChallenge.Backend.Mapping.Controllers
                 return NotFound();
             }
             return new JsonResult(res);
-           
         }
 
         [HttpPost]

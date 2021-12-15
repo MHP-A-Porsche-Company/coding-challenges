@@ -6,17 +6,16 @@ using MHP.CodingChallenge.Backend.Mapping.Data.DTO;
 
 namespace MHP.CodingChallenge.Backend.Mapping.Data
 {
-    public class ArticleService :IArticleService
+    public class ArticleService : IArticleService
     {
         private ArticleRepository _articleRepository;
-       // private ArticleMapper _articleMapper;
-       private readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
-        public ArticleService(ArticleRepository articleRepository, IMapper mapper)//ArticleMapper articleMapper
+        public ArticleService(ArticleRepository articleRepository, IMapper mapper)
         {
             _articleRepository = articleRepository;
+            //automapper mapper class 
             _mapper = mapper;
-            // _articleMapper = articleMapper;
         }
 
         public List<ArticleDto> GetAll()

@@ -1,4 +1,4 @@
-    using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,20 +32,16 @@ namespace MHP.CodingChallenge.Backend.Mapping
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MHP.CodingChallenge.Backend.Mapping", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "MHP.CodingChallenge.Backend.Mapping", Version = "v1"});
             });
 
             services.AddDataServices();
-            
+
             // Auto Mapper Configurations
-            var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new ArticleAutoMapper());
-            });
+            var mappingConfig = new MapperConfiguration(mc => { mc.AddProfile(new ArticleAutoMapper()); });
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-
             services.AddMvc();
         }
 
@@ -56,19 +52,18 @@ namespace MHP.CodingChallenge.Backend.Mapping
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MHP.CodingChallenge.Backend.Mapping v1"));
+                app.UseSwaggerUI(c =>
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MHP.CodingChallenge.Backend.Mapping v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseAuthentication();
+            //for CORS
             app.UseCors();
             app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
