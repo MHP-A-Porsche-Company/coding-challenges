@@ -14,7 +14,7 @@ Design and UX are completely up to your creativity.
 
 Use the following free and open API to gather data data:
 
-- [metaweather API]([https://www.metaweather.com/api](https://anapioficeandfire.com/Documentation#houses))
+- [Game of Thrones API]([https://www.metaweather.com/api](https://anapioficeandfire.com/Documentation#houses))
 
 ### Architecture Hint
 ![diagram](./diagram.png)
